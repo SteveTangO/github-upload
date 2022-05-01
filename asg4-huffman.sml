@@ -40,16 +40,16 @@ fun mergeNode (ht1, ht2 : hTree) : hTree =
 
 (* 4. TODO: implement insertNode *)
 fun insertNode (ht1, ls)= 
-    let fun findTree(h::t, ys, 0) = 
+    let fun insertTree(h::t, ys, 0) = 
               if getWeight(h) < getWeight(ys)
               then
-              h::findTree(t,ht1,0)
+              h::insertTree(t,ht1,0)
               else 
-              ys::findTree(h::t,ht1,1)
-        | findTree([], ys, 0) = [ys]
-        | findTree(xs, ys, 1) = xs
+              ys::insertTree(h::t,ht1,1)
+        | insertTree([], ys, 0) = [ys]
+        | insertTree(xs, ys, 1) = xs
     in
-      findTree(ls, ht1, 0)
+      insertTree(ls, ht1, 0)
     end
     
 
